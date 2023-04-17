@@ -1,0 +1,25 @@
+.custom-width {
+     width: 70%;
+}
+
+.card {
+     cursor: pointer;
+
+     .img-fluid {
+          max-height: max-content;
+     }
+
+     .card-title {
+          word-wrap: break-word;
+     }
+
+     .arrow {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+     }
+
+     .custom-image {
+          height: 5rem;
+     }
+}

@@ -1,0 +1,71 @@
+<div class="d-lg-flex justify-content-center align-items-center">
+  <div class="card mb-3 w-50 d-flex justify-content-center align-items-center">
+    <img
+      [src]="chemicalObj.strImageSource"
+      class="card-img-top custom-height"
+      alt="{{ chemicalObj.strImageAttribution }}"
+    />
+    <div class="card-body">
+      <div *ngIf="onSetEdit">
+        <form [formGroup]="profileForm">
+          <label for="CompoundName" [hidden]="onSetClass">CompoundName</label>
+          <input
+            class="w-100"
+            id="CompoundName"
+            type="text"
+            placeholder="CompoundName"
+            formControlName="CompoundName"
+            [ngClass]="{ 'form-control': onSetEdit, noedit: onSetClass }"
+          />
+          <hr />
+          <label for="CompounrDescription" [hidden]="onSetClass"
+            >CompounrDescription</label
+          >
+          <input
+            class="w-100"
+            id="CompounrDescription"
+            type="text"
+            placeholder="CompounrDescription"
+            formControlName="CompounrDescription"
+            [ngClass]="{ 'form-control': onSetEdit, noedit: onSetClass }"
+          />
+          <hr />
+          <!-- <label for="dateModified" [hidden]="onSetClass">dateModified</label>
+          <input
+            id="dateModified"
+            type="text"
+            placeholder="dateModified"
+            formControlName="dateModified"
+            [ngClass]="{ 'form-control': onSetEdit, noedit: onSetClass }"
+          /> -->
+        </form>
+      </div>
+
+      <div *ngIf="!onSetEdit">
+        <p>{{ chemicalObj.CompoundName }}</p>
+        <hr />
+        {{ chemicalObj.CompounrDescription }}
+      </div>
+      <hr />
+      Last Modified at
+      <b>
+        {{ chemicalObj.dateModified | customdate }}
+      </b>
+      <div class="custom-button">
+        <button
+          matTooltip="Submit"
+          (click)="onEditSubmitHandler()"
+          class="btn btn-secondary"
+          *ngIf="onSetEdit"
+        >
+          Submit
+        </button>
+        <button (click)="OnEditHandler()" class="btn btn-secondary">
+          <span matTooltip="Edit" class="material-symbols-outlined">
+            edit
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

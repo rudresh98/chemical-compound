@@ -1,0 +1,26 @@
+<app-header></app-header>
+<mat-paginator
+  #paginator
+  [length]="30"
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 15, 20, 25, 30]"
+  (page)="onHandlePagination($event)"
+>
+</mat-paginator>
+<ng-container *ngIf="toggleLoader">
+  <div class="loader">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-container>
+<!-- <div *ngIf="dataSource.filteredData.length > 0"> -->
+<app-chemical-card
+  *ngFor="let chemical of slicedData"
+  [id]="chemical.id"
+  [chemicalName]="chemical.CompoundName"
+  [chemDesc]="chemical.CompounrDescription"
+  [imgAtrb]="chemical.strImageAttribution"
+  [imgSource]="chemical.strImageSource"
+  [dateModified]="chemical.dateModified"
+>
+</app-chemical-card>
+<!-- </div> -->

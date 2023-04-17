@@ -1,0 +1,25 @@
+.custom-height {
+     height: 32rem
+}
+
+.card-body {
+     width: 100%;
+}
+
+.noedit {
+     border: none;
+     background-color: transparent;
+     pointer-events: none;
+
+     :disabled {
+          background-color: transparent;
+
+     }
+}
+
+.custom-button {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin: 10px 0px;
+}
